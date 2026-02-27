@@ -10,8 +10,8 @@
     </div>
     <p id="onSale" class="onSale" [class.sale]="article.isOnSale">{{ article.isOnSale ? 'On sale!' : 'Not on sale' }}
     </p>
-    <div class="cart">
-      <button id="decrement" class="decrement" (click)="changeQuantity(-1)" [disabled]="article.quantityInCart === 0" *ngIf="article.isOnSale">-</button>
+    <div class="cart" *ngIf="article.isOnSale">
+      <button id="decrement" class="decrement" (click)="changeQuantity(-1)" [disabled]="article.quantityInCart === 0">-</button>
       <p id="quantity" class="quantity">{{ article.quantityInCart }}</p>
       <button id="increment" class="increment" (click)="changeQuantity(+1)" *ngIf="article.isOnSale">+</button>
     </div>
