@@ -1,6 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { Article } from '../models/article';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { CommonModule, NgClass } from '@angular/common';
+
+import { Article } from '../models/article';
+import { ArticleQuantityChange } from '../models/article-quantity-change';
 
 @Component({
   selector: 'app-article-item',
@@ -8,23 +17,20 @@ import { CommonModule, NgClass } from '@angular/common';
   imports: [CommonModule, NgClass],
   templateUrl: './article-item.html',
   styleUrl: './article-item.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ArticleItem implements OnInit {
-  article!: Article;
+  @Input({ required: true }) article!: Article;
+  @Output() articleQuantityChange = new EventEmitter<ArticleQuantityChange>();
 
   constructor() {}
 
-  ngOnInit(): void {
-    this.article = {
-      name: 'Camiseta',
-      imageUrl: 'https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg',
-      price: 30,
-      isOnSale: true,
-      quantityInCart: 1,
-    };
-  }
+  ngOnInit(): void {}
 
   changeQuantity(value: number): void {
-    this.article.quantityInCart += value;
+    this.articleQuantityChange.emit({
+      article: this.article,
+      quantity: value,
+    });
   }
 }

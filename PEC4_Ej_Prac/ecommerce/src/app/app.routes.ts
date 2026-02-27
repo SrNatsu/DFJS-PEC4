@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { ArticleItem } from './article-item/article-item';
+import { ArticleList } from './article-list/article-list';
 
 export const routes: Routes = [
   {
     path: '',
-    component: ArticleItem,
+    component: ArticleList,
   },
 ];
