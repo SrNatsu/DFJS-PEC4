@@ -6,19 +6,19 @@
 
 La directiva ```NgFor``` permite iterar sobre una colección y generar una plantilla por cada elemento.
 
-* **```index```:** Permite acceder al índice de un elemento y mostrarlo.
+* **```index```:** Devuelve el índice del elemento actual.
 
-* **```even```:** Permite acceder a los resultados con índice par.
+* **```even```:** Devuelve ```true``` si el índice del elemento es par.
 
-* **```odd```:** Permite acceder a los resultados con índice impar.
+* **```odd```:** Devuelve ```true``` si el índice del elemento es impar.
 
-* **```first```:** Permite acceder al primer elemento.
+* **```first```:** Devuelve ```true``` si el elemento es el primero de la lista.
 
-* **```last```:** Permite acceder al último elemento.
+* **```last```:** Devuelve ```true``` si el elemento es el último de la lista.
 
 ### ¿Para qué sirve la opción ```trackBy``` de la directiva estructural ```NgFor```? Pon ejemplos de uso.
 
-La opción ```trackBy``` se usa para identificar de forma única a cada elemento. La función recibe una función con dos parámetros: ```index``` e ```item```.
+La opción ```trackBy``` permite a Angular identificar de forma única cada elemento de una colección. La función recibe dos parámetros: ```index``` e ```item```.
 
 Un ejemplo sería recorrer una lista de elementos.
 
